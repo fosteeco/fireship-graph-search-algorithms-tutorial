@@ -40,3 +40,35 @@ airports.forEach(addNode);
 routes.forEach((route) => addEdge(...route));
 
 console.log(adjacenyList);
+
+// BFS Breadth Firts Search
+
+function bfs(start) {
+  // Sets are like arrays but all the values in it are unique
+  const visited = new Set();
+
+  // to search the graph you have to start somewhere, here we'll start with the PHX node
+  // from the starting node, we'll visit all the children and see if any are Bangcock
+  const queue = [start];
+
+  while (queue.length > 0) {
+    const airport = queue.shift(); //mutates the queue
+    const destinations = adjacenyList.get(airport);
+
+    for (const destination of destinations) {
+      console.log(destination);
+      if (destination === "BKK") {
+        console.log("BFS found Bangkok");
+      }
+
+      if (!visited.has(destination)) {
+        visited.add(destination);
+        queue.push(destination);
+      }
+    }
+  }
+}
+
+bfs("PHX");
+
+// If the only concern is finding a route as quickly as possible a more efficient approach is depth first search

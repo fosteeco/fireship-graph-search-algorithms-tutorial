@@ -95,3 +95,11 @@ function dfs(start, visited = new Set()) {
 }
 
 dfs("PHX");
+
+// TIME complexity
+// Expressed as O(V+E)
+// V - number of nodes
+// E - number of edges
+// time performance will scale linear based on the number of nodes and edges that are added to the graph
+
+// Therefore O(N)

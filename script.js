@@ -72,3 +72,26 @@ function bfs(start) {
 bfs("PHX");
 
 // If the only concern is finding a route as quickly as possible a more efficient approach is depth first search
+
+// DFS Depth First Search
+
+function dfs(start, visited = new Set()) {
+  console.log(start);
+  visited.add(start);
+  let steps = 1;
+
+  const destinations = adjacenyList.get(start);
+  for (const destination of destinations) {
+    steps++;
+    if (destination === "BKK") {
+      console.log(`DFS Found Bangkok in ${steps} steps`);
+      return;
+    }
+
+    if (!visited.has(destination)) {
+      dfs(destination, visited);
+    }
+  }
+}
+
+dfs("PHX");
